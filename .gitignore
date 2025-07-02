@@ -36,6 +36,9 @@
 ehthumbs.db
 Thumbs.db
 
+# IDEA #
+.idea
+
 # Build #
 #########
 node_modules/
