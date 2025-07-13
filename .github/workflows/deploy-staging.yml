@@ -4,6 +4,11 @@ on:
     types:
       - labeled
 
+env:
+  IMAGE_REGISTRY_URL: ghcr.io
+  DOCKER_IMAGE_NAME: mapu77-azure-ticktacktoe
+  AZURE_WEBAPP_NAME: mapu77-ticktacktoe-app
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -69,7 +74,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: azure/docker-login@v1
+      - name: "Docker login"
+        uses: azure/docker-login@v1
         with:
           login-server: ${{env.IMAGE_REGISTRY_URL}}
           username: ${{ github.actor }}
